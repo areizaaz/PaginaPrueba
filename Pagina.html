@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interfaz Futurista</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: none;
+            border-radius: 15px;
+        }
+        .btn-custom {
+            background: linear-gradient(45deg, #06b6d4, #3b82f6);
+            border: none;
+            color: white;
+        }
+        .btn-custom:hover {
+            background: linear-gradient(45deg, #3b82f6, #06b6d4);
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <h1 class="text-center mb-4">Interfaz Futurista</h1>
+        
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="card p-3 text-center">
+                    <h5>Contador</h5>
+                    <p id="counter">0</p>
+                    <button class="btn btn-custom" onclick="incrementCounter()">Incrementar</button>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card p-3 text-center">
+                    <h5>Selector de Modo</h5>
+                    <select class="form-select" id="modeSelector" onchange="changeMode()">
+                        <option value="dark">Modo Oscuro</option>
+                        <option value="light">Modo Claro</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card p-3 text-center">
+                    <h5>Barra de Progreso</h5>
+                    <div class="progress">
+                        <div class="progress-bar bg-info" id="progressBar" style="width: 50%"></div>
+                    </div>
+                    <button class="btn btn-custom mt-2" onclick="increaseProgress()">Aumentar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function incrementCounter() {
+            let counter = document.getElementById("counter");
+            counter.innerText = parseInt(counter.innerText) + 1;
+        }
+        
+        function changeMode() {
+            let mode = document.getElementById("modeSelector").value;
+            document.body.style.background = mode === "dark" ? "#0f172a" : "#f8fafc";
+            document.body.style.color = mode === "dark" ? "white" : "black";
+        }
+        
+        function increaseProgress() {
+            let progressBar = document.getElementById("progressBar");
+            let width = parseInt(progressBar.style.width);
+            if (width < 100) {
+                progressBar.style.width = (width + 10) + "%";
+            }
+        }
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
